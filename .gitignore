@@ -1,0 +1,42 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.py[cod]
+
+# Virtual Environment
+.venv/
+env/
+venv/
+
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+staticfiles/
+local_settings.py
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment Variables
+.env
+
+# Migrations (optional — if auto-generating)
+*/migrations/__pycache__/
+*/migrations/*.pyc
+*/migrations/*.pyo
+*/migrations/*.pyd
+# Uncomment the next line if you don’t want to track migration files at all:
+# */migrations/*.py
+
+# JetBrains
+.idea/

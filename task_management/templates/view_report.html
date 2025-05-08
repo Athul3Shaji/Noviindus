@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Completion Report - {{ task.title }}</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        h1 { color: #333; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+    </style>
+</head>
+<body>
+    <h1>Task Completion Report - {{ task.title }}</h1>
+
+    <h2>Task Details</h2>
+    <table>
+        <tr>
+            <th>Assigned to</th>
+            <td>{{ task.assigned_to.username }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ task.description }}</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>{{ task.status }}</td>
+        </tr>
+        <tr>
+            <th>Due Date</th>
+            <td>{{ task.due_date }}</td>
+        </tr>
+        <tr>
+            <th>Completion Report</th>
+            <td>{{ task.completion_report }}</td>
+        </tr>
+        <tr>
+            <th>Worked Hours</th>
+            <td>{{ task.worked_hours }}</td>
+        </tr>
+    </table>
+
+
+</body>
+</html>

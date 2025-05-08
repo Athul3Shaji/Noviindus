@@ -1,0 +1,66 @@
+<!-- templates/admin_dashboard.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        h1, h2 { color: #333; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        a.button {
+            background: #007bff; color: white; padding: 8px 12px; text-decoration: none;
+            border-radius: 4px; margin-right: 5px;
+        }
+        a.button.danger { background: #dc3545; }
+    </style>
+</head>
+<body>
+    <h1>Admin Panel - {{ request.user.username }}</h1>
+
+        <p><a href="{% url 'logout' %}" class="button danger">Logout</a></p>
+
+
+<!--    <h2>Assigned Users</h2>-->
+<!--    <ul>-->
+<!--        {% for user in assigned_users %}-->
+<!--            <li>{{ user.username }} ({{ user.email }})</li>-->
+<!--        {% empty %}-->
+<!--            <li>No users assigned</li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+
+    <h2>Tasks</h2>
+    <a class="button" href="{% url 'admin_create_task' %}">Create Task</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>User</th>
+                <th>Status</th>
+                <th>Due Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.title }}</td>
+                <td>{{ task.assigned_to.username }}</td>
+                <td>{{ task.status }}</td>
+                <td>{{ task.due_date }}</td>
+                <td>
+                    <a class="button" href="{% url 'admin_update_task' task.id %}">Edit</a>
+                    <a class="button danger" href="{% url 'admin_delete_task' task.id %}">Delete</a>
+                    {% if task.status == 'Completed' %}
+                        <a class="button" href="{% url 'view_task_report' task.id %}">View Report</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="5">No tasks</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

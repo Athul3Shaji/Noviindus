@@ -1,0 +1,16 @@
+<!-- templates/update_user.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update User</title>
+</head>
+<body>
+    <h1>Update User: {{ user.username }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update User</button>
+    </form>
+</body>
+</html>
